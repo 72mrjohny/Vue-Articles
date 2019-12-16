@@ -2,17 +2,27 @@
   <div class="articles">
     <ul v-if="posts && posts.length" class="articles__list">
       <li v-for="post of posts" v-bind:key="post.id" class="articles__item">
-        <ArticleCard :urlToImage="post.urlToImage" :url="post.url" :title="post.title" />
+        <ArticleCard
+          :urlToImage="post.urlToImage"
+          :url="post.url"
+          :source="post.source.name"
+          :title="post.title"
+        />
       </li>
     </ul>
 
     <ul v-if="additionalPostStatus && additionalPost.length" class="articles__list">
       <li
         class="additional articles__item"
-        v-for="post of additionalPost"
-        v-bind:key="'additional' + post.id"
+        v-for="(post,index) of additionalPost"
+        v-bind:key="'additional' + index"
       >
-        <ArticleCard :urlToImage="post.urlToImage" :url="post.url" :title="post.title" />
+        <ArticleCard
+          :urlToImage="post.urlToImage"
+          :url="post.url"
+          :source="post.source.name"
+          :title="post.title"
+        />
       </li>
     </ul>
 
@@ -73,6 +83,3 @@ export default {
   }
 };
 </script>
-
-<style>
-</style>

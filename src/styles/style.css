@@ -8,9 +8,10 @@
 header {
   font-family: "Raleway", sans-serif;
   font-size: 25px;
-  margin-top: 30px;
+  margin-top: 25px;
   margin-bottom: 10px;
-  text-align: center;
+  text-align: left;
+  margin-left: 21%;
 }
 
 #app {
@@ -18,7 +19,7 @@ header {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -42,7 +43,7 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 65%;
+  width: 60%;
 }
 
 .articles .articles__list {
@@ -71,7 +72,7 @@ header {
 }
 
 .articles .articles__list .articles__item {
-  padding: 10px;
+  padding: 5px;
   width: 33%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -79,17 +80,24 @@ header {
 }
 
 .articles .articles__button {
-  margin: 20px;
-  width: 80%;
-  font-weight: 300;
-  line-height: 32px;
-  padding: 0 20px;
+  padding: 5px;
+  margin: 30px 0 50px 10px;
+  width: 98%;
+  font-weight: 500;
+  line-height: 25px;
   text-transform: uppercase;
   color: black;
   background-color: transparent;
-  font-size: 12px;
-  border: 2px solid black;
+  font-size: 14px;
+  border: 2px solid rgba(67, 99, 201, 0.459);
   cursor: pointer;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.articles .articles__button:hover {
+  color: white;
+  background-color: rgba(67, 99, 201, 0.459);
 }
 
 .articleCard {
@@ -100,20 +108,20 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin: 5px;
+  margin: 3px;
   min-width: 100%;
-  height: 200px;
+  height: 240px;
   overflow: hidden;
   background-size: cover;
   background-color: white;
-  -webkit-box-shadow: 0 1px 2px 0 rgba(202, 44, 44, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.19);
-          box-shadow: 0 1px 2px 0 rgba(202, 44, 44, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.19);
+  -webkit-box-shadow: 0 1px 2px 0 rgba(202, 44, 44, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 1px 2px 0 rgba(202, 44, 44, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.19);
 }
 
 .articleCard .articleCard__image {
   overflow: hidden;
   width: 100%;
-  height: 80%;
+  height: 70%;
   background-position: center;
   background-size: contain;
 }
@@ -132,11 +140,20 @@ header {
 
 .articleCard .articleCard__description {
   padding: 5px;
-  margin: 5px;
+  margin: 7px;
   line-height: 1.2rem;
-  height: 20%;
+  height: 30%;
   width: 100%;
   text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.articleCard .articleCard__description p.source {
+  text-align: left;
+  font-size: 0.8rem;
+  color: blue;
+  margin-bottom: 7px;
 }
 
 .articleCard .articleCard__description a:link {
@@ -144,8 +161,10 @@ header {
   color: black;
 }
 
-.articleCard .articleCard__description a:link div.description p {
+.articleCard .articleCard__description a:link p {
+  text-align: left;
   font-size: 15px;
+  margin-top: 5px;
 }
 
 @media (max-width: 1024px) {
@@ -156,6 +175,9 @@ header {
 }
 
 @media (max-width: 640px) {
+  header {
+    margin-left: 7%;
+  }
   ul > li {
     -ms-flex-preferred-size: 100%;
         flex-basis: 100%;

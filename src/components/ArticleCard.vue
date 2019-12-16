@@ -7,6 +7,7 @@
     </div>
 
     <div class="articleCard__description">
+      <p class="source">{{source}}</p>
       <a :href="url" target="blank">
         <p>{{title}}</p>
       </a>
@@ -25,11 +26,16 @@ export default {
         "http://www.coraf.org/wp-content/themes/consultix/images/no-image-found-360x250.png"
     },
     url: {
-      type: String
+      type: String,
+      default: "http://google.com"
     },
     title: {
       type: String,
       default: "Tytuł Artykułu"
+    },
+    source: {
+      type: String,
+      default: "google.com"
     }
   }
 };

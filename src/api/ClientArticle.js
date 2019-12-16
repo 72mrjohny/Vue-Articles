@@ -19,7 +19,8 @@ class ClientArticle {
             page: page,
             country: country,
         };
-        return this.axios.get(`/top-headlines?apiKey=${this.apiKey}&page=${page}&country=${country}&pageSize=${this.pageSize}`).then(response => response.data);
+
+        return this.axios.get('/top-headlines', { params: params }).then(response => response.data);
     }
 
     setPageSize(pageSize) {
