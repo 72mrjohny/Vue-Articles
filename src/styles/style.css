@@ -5,6 +5,14 @@
           box-sizing: border-box;
 }
 
+header {
+  font-family: "Raleway", sans-serif;
+  font-size: 25px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
 #app {
   font-family: "Raleway", sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -21,7 +29,7 @@
       align-content: center;
 }
 
-#app div {
+#app section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -34,15 +42,10 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 70%;
+  width: 65%;
 }
 
-#app div div h1 {
-  margin: 10px;
-  text-align: center;
-}
-
-#app div div ul {
+.articles .articles__list {
   list-style-type: none;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
@@ -59,15 +62,15 @@
       align-content: space-around;
 }
 
-#app div div ul li:nth-child(-n + 2) {
+.articles .articles__list .articles__item:nth-child(-n + 2) {
   width: 50%;
 }
 
-#app div div ul li.additional {
+.articles .articles__list .articles__item.additional {
   width: 33%;
 }
 
-#app div div ul li {
+.articles .articles__list .articles__item {
   padding: 10px;
   width: 33%;
   display: -webkit-box;
@@ -75,7 +78,21 @@
   display: flex;
 }
 
-#app div div ul li div.polaroid {
+.articles .articles__button {
+  margin: 20px;
+  width: 80%;
+  font-weight: 300;
+  line-height: 32px;
+  padding: 0 20px;
+  text-transform: uppercase;
+  color: black;
+  background-color: transparent;
+  font-size: 12px;
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+.articleCard {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -93,7 +110,7 @@
           box-shadow: 0 1px 2px 0 rgba(202, 44, 44, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.19);
 }
 
-#app div div ul li div.polaroid div.artphoto {
+.articleCard .articleCard__image {
   overflow: hidden;
   width: 100%;
   height: 80%;
@@ -101,7 +118,7 @@
   background-size: contain;
 }
 
-#app div div ul li div.polaroid div.artphoto img {
+.articleCard .articleCard__image img {
   display: block;
   width: auto;
   min-width: 100%;
@@ -113,7 +130,7 @@
   overflow: hidden;
 }
 
-#app div div ul li div.polaroid div.description {
+.articleCard .articleCard__description {
   padding: 5px;
   margin: 5px;
   line-height: 1.2rem;
@@ -122,27 +139,13 @@
   text-align: center;
 }
 
-#app div div ul li div.polaroid div.description a:link {
+.articleCard .articleCard__description a:link {
   text-decoration: none;
   color: black;
 }
 
-#app div div ul li div.polaroid div.description a:link div.description p {
+.articleCard .articleCard__description a:link div.description p {
   font-size: 15px;
-}
-
-#app div div button {
-  margin: 20px;
-  width: 80%;
-  font-weight: 300;
-  line-height: 32px;
-  padding: 0 20px;
-  text-transform: uppercase;
-  color: black;
-  background-color: transparent;
-  font-size: 12px;
-  border: 2px solid black;
-  cursor: pointer;
 }
 
 @media (max-width: 1024px) {

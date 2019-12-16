@@ -1,56 +1,39 @@
 <template>
-  <div class="list">
-    <h1>Artykuły</h1>
-    <ul v-if="posts && posts.length">
-      <li v-for="post of posts" v-bind:key="post.id">
-        <div class="polaroid">
-          <div class="artphoto">
-            <img
-              v-bind:src="post.urlToImage || 'http://www.coraf.org/wp-content/themes/consultix/images/no-image-found-360x250.png' "
-            />
-          </div>
-
-          <div class="description">
-            <a :href="post.url" target="blank">
-              <p>{{post.title}}</p>
-            </a>
-          </div>
-        </div>
+  <div class="articles">
+    <ul v-if="posts && posts.length" class="articles__list">
+      <li v-for="post of posts" v-bind:key="post.id" class="articles__item">
+        <ArticleCard :urlToImage="post.urlToImage" :url="post.url" :title="post.title" />
       </li>
     </ul>
 
-    <ul v-if="additionalPostStatus && additionalPost.length">
-      <li class="additional" v-for="post of additionalPost" v-bind:key="'additional' + post.id">
-        <div class="polaroid">
-          <div class="artphoto">
-            <img
-              v-bind:src="post.urlToImage || 'http://www.coraf.org/wp-content/themes/consultix/images/no-image-found-360x250.png'"
-            />
-          </div>
-          <div class="description">
-            <a :href="post.url" target="blank">
-              <p>{{post.title}}</p>
-            </a>
-          </div>
-        </div>
+    <ul v-if="additionalPostStatus && additionalPost.length" class="articles__list">
+      <li
+        class="additional articles__item"
+        v-for="post of additionalPost"
+        v-bind:key="'additional' + post.id"
+      >
+        <ArticleCard :urlToImage="post.urlToImage" :url="post.url" :title="post.title" />
       </li>
     </ul>
 
-    <button @click="getMoreArticles">Zobacz Więcej</button>
-
-    <!-- <ul v-if="errors && errors.length">
-      <li>{{error.message}}</li>
-    </ul>-->
+    <button
+      class="articles__button"
+      @click="getMoreArticles"
+      v-if="!additionalPostStatus"
+    >Zobacz Więcej</button>
   </div>
 </template>
 
 
 <script>
 import ClientArticle from "../api/ClientArticle";
+import ArticleCard from "./ArticleCard";
 
 export default {
   name: "ArticlesList",
-  // props: ["posts"],
+  components: {
+    ArticleCard
+  },
   data() {
     return {
       clientArticle: null,
