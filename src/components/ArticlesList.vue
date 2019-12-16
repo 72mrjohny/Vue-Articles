@@ -1,31 +1,37 @@
 <template>
   <div class="list">
-    <h1>articlesList</h1>
+    <h1>Artykuły</h1>
     <ul v-if="posts && posts.length">
       <li v-for="post of posts" v-bind:key="post.id">
         <div class="polaroid">
-          <img
-            v-bind:src="post.urlToImage || 'http://www.coraf.org/wp-content/themes/consultix/images/no-image-found-360x250.png' "
-          />
-          <p>{{post.name}}</p>
-          <p>
-            <strong>{{post.title}}</strong>
-          </p>
+          <div class="artphoto">
+            <img
+              v-bind:src="post.urlToImage || 'http://www.coraf.org/wp-content/themes/consultix/images/no-image-found-360x250.png' "
+            />
+          </div>
+
+          <div class="description">
+            <a :href="post.url" target="blank">
+              <p>{{post.title}}</p>
+            </a>
+          </div>
         </div>
       </li>
     </ul>
 
-    <hr />
-    <hr />
-
     <ul v-if="additionalPostStatus && additionalPost.length">
       <li class="additional" v-for="post of additionalPost" v-bind:key="'additional' + post.id">
         <div class="polaroid">
-          <img v-bind:src="post.urlToImage" />
-          <p>{{post.name}}</p>
-          <p>
-            <strong>{{post.title}}</strong>
-          </p>
+          <div class="artphoto">
+            <img
+              v-bind:src="post.urlToImage || 'http://www.coraf.org/wp-content/themes/consultix/images/no-image-found-360x250.png'"
+            />
+          </div>
+          <div class="description">
+            <a :href="post.url" target="blank">
+              <p>{{post.title}}</p>
+            </a>
+          </div>
         </div>
       </li>
     </ul>
@@ -73,7 +79,7 @@ export default {
     },
 
     getMoreArticles() {
-      this.clientArticle.setPageSize(3);
+      this.clientArticle.setPageSize(6);
       this.clientArticle.getArticles(5).then(response => {
         if (response.status == "ok") {
           this.additionalPost = response.articles;
