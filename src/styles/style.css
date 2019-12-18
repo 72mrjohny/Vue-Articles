@@ -8,10 +8,11 @@
 header {
   font-family: "Raleway", sans-serif;
   font-size: 25px;
-  margin-top: 25px;
-  margin-bottom: 10px;
-  text-align: left;
-  margin-left: 21%;
+  position: absolute;
+  top: 20px;
+  left: 30%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
 }
 
 #app {
@@ -30,7 +31,12 @@ header {
       align-content: center;
 }
 
-#app section {
+#app section.container {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -43,7 +49,13 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 60%;
+  -ms-flex-preferred-size: 60%;
+      flex-basis: 60%;
+  max-width: 900px;
+}
+
+.articles {
+  position: relative;
 }
 
 .articles .articles__list {
@@ -80,9 +92,12 @@ header {
 }
 
 .articles .articles__button {
+  position: relative;
+  top: 15px;
+  left: 2px;
   padding: 5px;
-  margin: 30px 0 50px 10px;
-  width: 98%;
+  margin: 0 0 50px 0px;
+  width: calc(100% - 10px);
   font-weight: 500;
   line-height: 25px;
   text-transform: uppercase;
@@ -175,9 +190,6 @@ header {
 }
 
 @media (max-width: 640px) {
-  header {
-    margin-left: 7%;
-  }
   ul > li {
     -ms-flex-preferred-size: 100%;
         flex-basis: 100%;
