@@ -142,12 +142,19 @@
 
 
 @media (max-width: 1024px) {
-    ul > li {
+  header{
+    left: 33%;
+  }
+  ul > li {
       flex-basis: 50%;
     }
   }
   
 @media (max-width: 640px) {
+    header{
+        left: 20%;
+      }
+
     ul > li {
       flex-basis: 100%;
     }

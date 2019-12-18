@@ -183,6 +183,9 @@ header {
 }
 
 @media (max-width: 1024px) {
+  header {
+    left: 33%;
+  }
   ul > li {
     -ms-flex-preferred-size: 50%;
         flex-basis: 50%;
@@ -190,6 +193,9 @@ header {
 }
 
 @media (max-width: 640px) {
+  header {
+    left: 20%;
+  }
   ul > li {
     -ms-flex-preferred-size: 100%;
         flex-basis: 100%;
